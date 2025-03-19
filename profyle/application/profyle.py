@@ -42,7 +42,7 @@ class profyle:
     ) -> None:
         if self.tracer and self.tracer.enable:
             self.tracer.stop()
-            temp_file = NamedTemporaryFile(suffix=".json")
+            temp_file = NamedTemporaryFile(suffix=".json", delete=False)
             self.tracer.save(temp_file.name)
             temp_file.close()
             new_trace = TraceCreate(
